@@ -139,6 +139,38 @@ object AttractionRepository {
             defaultDurationHours = 2,
             defaultDifficulty = Difficulty.EASY,
             websiteUrl = "https://pt.wikipedia.org/wiki/Feira_livre"
+        ),
+
+        // ----- Vida noturna -----
+        Attraction(
+            id = 13,
+            name = "Bar com música ao vivo",
+            description = "Noite em um bar tradicional, com banda tocando o repertório da região.",
+            preference = Preference.NIGHTLIFE,
+            imageResId = R.drawable.ic_nightlife,
+            defaultDurationHours = 3,
+            defaultDifficulty = Difficulty.EASY,
+            websiteUrl = "https://pt.wikipedia.org/wiki/M%C3%BAsica_ao_vivo"
+        ),
+        Attraction(
+            id = 14,
+            name = "Mirante à noite",
+            description = "Subida ao mirante depois do pôr do sol, com a cidade toda iluminada.",
+            preference = Preference.NIGHTLIFE,
+            imageResId = R.drawable.ic_nightlife,
+            defaultDurationHours = 2,
+            defaultDifficulty = Difficulty.MEDIUM,
+            websiteUrl = "https://pt.wikipedia.org/wiki/Mirante"
+        ),
+        Attraction(
+            id = 15,
+            name = "Festival de rua",
+            description = "Programação noturna com food trucks, música e artesanato local.",
+            preference = Preference.NIGHTLIFE,
+            imageResId = R.drawable.ic_nightlife,
+            defaultDurationHours = 4,
+            defaultDifficulty = Difficulty.EASY,
+            websiteUrl = "https://pt.wikipedia.org/wiki/Festival"
         )
     )
 

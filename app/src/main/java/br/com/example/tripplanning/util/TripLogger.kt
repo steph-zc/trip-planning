@@ -21,7 +21,6 @@ object TripLogger {
     fun logTrip(trip: Trip) {
         Log.d(TAG, "Destino: ${trip.destination}")
         Log.d(TAG, "Partida: ${trip.departureDate} | Retorno: ${trip.returnDate}")
-        Log.d(TAG, "Viajantes: ${trip.travelers}")
         Log.d(TAG, "Preferências: ${trip.preferencesLabel()}")
 
         if (trip.plannedAttractions.isEmpty()) {

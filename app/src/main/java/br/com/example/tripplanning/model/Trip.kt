@@ -11,7 +11,6 @@ data class Trip(
     // Datas escolhidas no DatePicker, no formato "dd/MM/yyyy"
     val departureDate: String,
     val returnDate: String,
-    val travelers: Int,
     val preferences: List<Preference>,
     // Atividades já ajustadas e confirmadas pelo usuário
     val plannedAttractions: MutableList<PlannedAttraction> = mutableListOf()

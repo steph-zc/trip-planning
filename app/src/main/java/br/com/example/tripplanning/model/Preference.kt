@@ -9,5 +9,6 @@ enum class Preference(val label: String) : Serializable {
     ADVENTURE("Aventura"),
     CULTURE("Cultura"),
     BEACH("Praia"),
-    GASTRONOMY("Gastronomia")
+    GASTRONOMY("Gastronomia"),
+    NIGHTLIFE("Vida noturna")
 }
