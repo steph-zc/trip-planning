@@ -13,6 +13,18 @@
     <string name="setup_preferences_help">Marque o que você quer aproveitar na viagem</string>
     <string name="setup_continue">Continuar</string>
 
+    <!-- Tela 2: atividades sugeridas -->
+    <string name="title_attraction_list">Atividades sugeridas</string>
+    <string name="list_trip_info">%1$s a %2$s · %3$s</string>
+    <string name="list_help">Toque em uma atividade para ajustar os detalhes</string>
+    <string name="attraction_info">%1$s · %2$d h · %3$s</string>
+    <string name="attraction_image_description">Imagem ilustrativa da atividade</string>
+
+    <plurals name="list_attractions_count">
+        <item quantity="one">%d atividade sugerida</item>
+        <item quantity="other">%d atividades sugeridas</item>
+    </plurals>
+
     <!-- Avisos de validação -->
     <string name="dialog_incomplete_title">Dados incompletos</string>
     <string name="dialog_attention_title">Atenção</string>

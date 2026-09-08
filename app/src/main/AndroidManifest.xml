@@ -22,6 +22,13 @@
             </intent-filter>
         </activity>
 
+        <!-- Tela 2: aberta pela tela 1, nunca direto pelo sistema -->
+        <activity
+            android:name=".ui.attractions.AttractionListActivity"
+            android:exported="false"
+            android:label="@string/title_attraction_list"
+            android:parentActivityName=".ui.setup.TripSetupActivity" />
+
     </application>
 
 </manifest>

@@ -17,6 +17,13 @@ object TripLogger {
         logTrip(trip)
     }
 
+    // Chamado pela tela que acabou de receber os dados.
+    // Serve para conferir no console que nada se perdeu no caminho do Intent.
+    fun logArrival(screen: String, trip: Trip) {
+        Log.d(TAG, "===== $screen recebeu os dados =====")
+        logTrip(trip)
+    }
+
     // Imprime o estado atual da viagem.
     fun logTrip(trip: Trip) {
         Log.d(TAG, "Destino: ${trip.destination}")

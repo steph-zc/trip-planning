@@ -1,17 +1,19 @@
 package br.com.example.tripplanning.ui.setup
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.com.example.tripplanning.R
 import br.com.example.tripplanning.model.Preference
 import br.com.example.tripplanning.model.Trip
+import br.com.example.tripplanning.ui.attractions.AttractionListActivity
+import br.com.example.tripplanning.util.Extras
 import br.com.example.tripplanning.util.TripLogger
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -227,10 +229,11 @@ class TripSetupActivity : AppCompatActivity() {
 
         TripLogger.logTransition("TripSetupActivity", "AttractionListActivity", trip)
 
-        // TEMPORÁRIO: a segunda tela ainda não existe.
-        // Na próxima etapa esta linha vira o Intent que abre a lista de atividades.
-        Toast.makeText(this, "Viagem registrada. Veja os dados no Logcat.", Toast.LENGTH_LONG)
-            .show()
+        // A viagem inteira viaja dentro do Intent. Como Trip é Serializable,
+        // basta uma chamada para levar todos os campos de uma vez.
+        val intent = Intent(this, AttractionListActivity::class.java)
+        intent.putExtra(Extras.TRIP, trip)
+        startActivity(intent)
     }
 
     // Aviso mostrado quando falta preencher algum campo ou quando uma
