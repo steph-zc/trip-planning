@@ -1,0 +1,52 @@
+# ===== Gradle =====
+.gradle/
+build/
+gradle-app.setting
+.gradletasknamecache
+
+# ===== Kotlin =====
+# Cache de sessao criado pelo compilador Kotlin na raiz do projeto
+.kotlin/
+
+# ===== Configuracao local da maquina =====
+# Contem o caminho do SDK deste computador, nao serve para outra maquina
+local.properties
+
+# ===== Android Studio / IntelliJ =====
+*.iml
+.idea/
+captures/
+.navigation/
+
+# ===== Saidas de build e artefatos =====
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+release/
+mapping.txt
+
+# ===== Chaves de assinatura (nunca enviar para o repositorio) =====
+*.jks
+*.keystore
+key.properties
+keystore.properties
+
+# ===== NDK / codigo nativo =====
+.externalNativeBuild/
+.cxx/
+obj/
+
+# ===== Logs e arquivos temporarios =====
+*.log
+*.hprof
+*.tmp
+
+# ===== Arquivos do sistema operacional =====
+.DS_Store
+Thumbs.db
+Desktop.ini
