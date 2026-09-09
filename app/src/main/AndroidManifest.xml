@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Necessaria para a WebView da tela de detalhes carregar a pagina da atividade -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,6 +13,39 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TripPlanning" />
+        android:theme="@style/Theme.TripPlanning">
+
+        <!-- Tela 1: e por onde o aplicativo comeca -->
+        <activity
+            android:name=".ui.setup.TripSetupActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tela 2: aberta pela tela 1, nunca direto pelo sistema -->
+        <activity
+            android:name=".ui.attractions.AttractionListActivity"
+            android:exported="false"
+            android:label="@string/title_attraction_list"
+            android:parentActivityName=".ui.setup.TripSetupActivity" />
+
+        <!-- Tela 3: aberta pela lista, devolve a viagem atualizada para ela -->
+        <activity
+            android:name=".ui.details.AttractionDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_attraction_details"
+            android:parentActivityName=".ui.attractions.AttractionListActivity" />
+
+        <!-- Tela 4: resumo final da viagem -->
+        <activity
+            android:name=".ui.summary.TripSummaryActivity"
+            android:exported="false"
+            android:label="@string/title_trip_summary"
+            android:parentActivityName=".ui.attractions.AttractionListActivity" />
+
+    </application>
 
 </manifest>

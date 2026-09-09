@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Tela 1: configuração inicial da viagem.
+    O ScrollView por fora garante que a tela role em aparelhos pequenos,
+    já que o formulário é mais alto do que a tela.
+
+    fitsSystemWindows="true" afasta o conteúdo das áreas do sistema
+    (barra de status, barra de título e barra de navegação). Sem isso,
+    a partir do Android 15 o topo do formulário fica escondido atrás delas.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/setup_image_description"
+            android:src="@drawable/ic_trip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="@string/setup_title"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Destino -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/setup_destination"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="postalAddress"
+            android:hint="@string/setup_destination_hint"
+            android:inputType="textCapWords" />
+
+        <!-- Data de partida -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/setup_departure_date"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDepartureDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_select_date" />
+
+        <!-- Data de retorno -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/setup_return_date"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnReturnDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_select_date" />
+
+        <!-- Preferencias -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/setup_preferences"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_preferences_help"
+            android:textSize="14sp" />
+
+        <!--
+            O texto de cada CheckBox vem do enum Preference, definido no código.
+            O tools:text serve só para o preview do Android Studio.
+        -->
+        <CheckBox
+            android:id="@+id/checkAdventure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Aventura" />
+
+        <CheckBox
+            android:id="@+id/checkCulture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Cultura" />
+
+        <CheckBox
+            android:id="@+id/checkBeach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Praia" />
+
+        <CheckBox
+            android:id="@+id/checkGastronomy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Gastronomia" />
+
+        <CheckBox
+            android:id="@+id/checkNightlife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Vida noturna" />
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/setup_continue" />
+
+    </LinearLayout>
+
+</ScrollView>

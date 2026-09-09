@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Tela 4: resumo da viagem com todas as atividades escolhidas.
+    Cabeçalho fixo no topo, ListView rolando embaixo.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtDestination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Florianópolis" />
+
+    <TextView
+        android:id="@+id/txtTripInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="14sp"
+        tools:text="08/09/2026 a 20/09/2026 · 13 dias" />
+
+    <!-- Quanto do tempo disponível da viagem já foi planejado -->
+    <TextView
+        android:id="@+id/txtHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="9 h planejadas de 104 h disponíveis" />
+
+    <ProgressBar
+        android:id="@+id/progressHours"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        tools:progress="30" />
+
+    <!-- Controles da lista: ordenação e nível de detalhe -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/summary_sort"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:entries="@array/summary_sort_options" />
+
+        <ToggleButton
+            android:id="@+id/toggleDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:checked="true"
+            android:textOff="@string/summary_view_off"
+            android:textOn="@string/summary_view_on" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listPlanned"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        tools:listitem="@layout/item_planned_attraction" />
+
+    <!-- Mostrado no lugar da lista quando não há nada escolhido -->
+    <TextView
+        android:id="@+id/txtEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="@string/summary_empty"
+        android:textSize="16sp" />
+
+</LinearLayout>

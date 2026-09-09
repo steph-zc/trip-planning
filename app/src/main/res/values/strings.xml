@@ -1,3 +1,82 @@
 <resources>
     <string name="app_name">TripPlanning</string>
+
+    <!-- Tela 1: configuração da viagem -->
+    <string name="setup_title">Planeje sua viagem</string>
+    <string name="setup_image_description">Ilustração de uma mala de viagem</string>
+    <string name="setup_destination">Destino</string>
+    <string name="setup_destination_hint">Ex.: Florianópolis</string>
+    <string name="setup_departure_date">Data de partida</string>
+    <string name="setup_return_date">Data de retorno</string>
+    <string name="setup_select_date">Selecionar data</string>
+    <string name="setup_preferences">Preferências</string>
+    <string name="setup_preferences_help">Marque o que você quer aproveitar na viagem</string>
+    <string name="setup_continue">Continuar</string>
+
+    <!-- Tela 2: atividades sugeridas -->
+    <string name="title_attraction_list">Atividades sugeridas</string>
+    <string name="list_trip_info">%1$s a %2$s · %3$s</string>
+    <string name="list_help">Toque em uma atividade para ajustar os detalhes</string>
+    <string name="attraction_info">%1$s · %2$d h · %3$s</string>
+    <string name="attraction_image_description">Imagem ilustrativa da atividade</string>
+
+    <plurals name="list_attractions_count">
+        <item quantity="one">%d atividade sugerida</item>
+        <item quantity="other">%d atividades sugeridas</item>
+    </plurals>
+
+    <!-- Tela 3: detalhes e ajuste da atividade -->
+    <string name="title_attraction_details">Detalhes da atividade</string>
+    <string name="details_duration">Duração: %1$d h</string>
+    <string name="details_duration_hint">Arraste para ajustar quantas horas você quer dedicar</string>
+    <string name="details_difficulty">Nível de dificuldade</string>
+    <string name="details_start_time">Horário de início</string>
+    <string name="details_notes">Observações</string>
+    <string name="details_more_info">Mais informações</string>
+    <string name="details_notes_hint">Ex.: levar protetor solar</string>
+    <string name="details_add">Adicionar à viagem</string>
+    <string name="details_added">%1$s foi adicionada à viagem</string>
+
+    <plurals name="list_chosen_count">
+        <item quantity="one">%d atividade já escolhida</item>
+        <item quantity="other">%d atividades já escolhidas</item>
+    </plurals>
+    <string name="list_chosen_none">Nenhuma atividade escolhida ainda</string>
+
+    <!-- Tela 4: resumo da viagem -->
+    <string name="title_trip_summary">Resumo da viagem</string>
+    <string name="summary_trip_info">%1$s a %2$s · %3$s</string>
+    <string name="summary_hours">%1$d h planejadas de %2$d h disponíveis</string>
+    <string name="summary_sort">Ordenar por</string>
+    <string name="summary_view_on">Detalhado</string>
+    <string name="summary_view_off">Compacto</string>
+    <string name="summary_empty">Nenhuma atividade escolhida ainda.\nVolte e toque em uma atividade da lista.</string>
+    <string name="summary_item_info">%1$s · %2$d h · %3$s</string>
+    <string name="summary_notes">Obs.: %1$s</string>
+
+    <plurals name="summary_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dias</item>
+    </plurals>
+
+    <string-array name="summary_sort_options">
+        <item>Horário</item>
+        <item>Duração</item>
+        <item>Nome</item>
+    </string-array>
+
+    <string name="list_see_summary">Ver resumo da viagem</string>
+
+    <!-- Avisos de validação -->
+    <string name="dialog_incomplete_title">Dados incompletos</string>
+    <string name="dialog_attention_title">Atenção</string>
+    <string name="dialog_ok">Entendi</string>
+    <string name="error_destination">Informe o destino da viagem.</string>
+    <string name="error_departure_date">Escolha a data de partida.</string>
+    <string name="error_return_date">Escolha a data de retorno.</string>
+    <string name="error_date_order">A data de retorno não pode ser anterior à data de partida.</string>
+    <string name="error_departure_first">Escolha primeiro a data de partida.</string>
+    <string name="warning_return_cleared">A data de retorno foi apagada porque ficou anterior à nova data de partida. Escolha o retorno novamente.</string>
+    <string name="error_preferences">Marque pelo menos uma preferência.</string>
+    <string name="error_no_attraction">Escolha pelo menos uma atividade antes de ver o resumo.</string>
 </resources>

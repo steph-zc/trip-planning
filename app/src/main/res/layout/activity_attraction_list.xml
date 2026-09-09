@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Tela 2: atividades sugeridas a partir das preferências da viagem.
+    O cabeçalho fica fixo no topo e só a lista rola.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtDestination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Florianópolis" />
+
+    <TextView
+        android:id="@+id/txtTripInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="14sp"
+        tools:text="10/12/2026 a 18/12/2026 · Aventura, Praia" />
+
+    <TextView
+        android:id="@+id/txtAttractionsCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="6 atividades sugeridas" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/list_help"
+        android:textSize="14sp" />
+
+    <!-- Quantas atividades já foram adicionadas à viagem -->
+    <TextView
+        android:id="@+id/txtChosenCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="2 atividades já escolhidas" />
+
+    <!--
+        A altura 0dp com weight 1 faz a lista ocupar todo o espaço que
+        sobra abaixo do cabeçalho, sem empurrar nada para fora da tela.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAttractions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        tools:listitem="@layout/item_attraction" />
+
+    <Button
+        android:id="@+id/btnSeeSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/list_see_summary" />
+
+</LinearLayout>
