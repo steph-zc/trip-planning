@@ -14,6 +14,8 @@ data class Attraction(
     // Id do desenho em res/drawable usado como imagem ilustrativa
     val imageResId: Int,
     val defaultDurationHours: Int,
-    val defaultDifficulty: Difficulty
+    val defaultDifficulty: Difficulty,
+    // Página aberta pela WebView na tela de detalhes
+    val websiteUrl: String
 
 ) : Serializable

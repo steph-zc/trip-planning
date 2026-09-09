@@ -4,9 +4,14 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.SeekBar
@@ -36,6 +41,8 @@ class AttractionDetailsActivity : AppCompatActivity() {
     private lateinit var radioHard: RadioButton
     private lateinit var btnStartTime: Button
     private lateinit var editNotes: EditText
+    private lateinit var progressPage: ProgressBar
+    private lateinit var webAttraction: WebView
     private lateinit var btnAddToTrip: Button
 
     private lateinit var trip: Trip
@@ -69,6 +76,7 @@ class AttractionDetailsActivity : AppCompatActivity() {
         linkComponents()
         fillAttraction()
         configComponents()
+        loadWebPage()
     }
 
     private fun linkComponents() {
@@ -83,6 +91,8 @@ class AttractionDetailsActivity : AppCompatActivity() {
         radioHard = findViewById(R.id.radioHard)
         btnStartTime = findViewById(R.id.btnStartTime)
         editNotes = findViewById(R.id.editNotes)
+        progressPage = findViewById(R.id.progressPage)
+        webAttraction = findViewById(R.id.webAttraction)
         btnAddToTrip = findViewById(R.id.btnAddToTrip)
     }
 
@@ -165,6 +175,23 @@ class AttractionDetailsActivity : AppCompatActivity() {
     // Monta o texto "HH:mm" sempre com dois dígitos.
     private fun formattedStartTime(): String =
         String.format(Locale.forLanguageTag("pt-BR"), "%02d:%02d", startHour, startMinute)
+
+    // Abre a página da atividade dentro do aplicativo, sem sair dele.
+    private fun loadWebPage() {
+        // Faz os links abrirem na própria WebView, e não no navegador do aparelho.
+        webAttraction.webViewClient = WebViewClient()
+
+        // A barra de progresso acompanha o carregamento e some quando termina.
+        webAttraction.webChromeClient = object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                progressPage.progress = newProgress
+                progressPage.visibility = if (newProgress == 100) View.GONE else View.VISIBLE
+            }
+        }
+
+        Log.d(TAG, "Carregando página: ${attraction.websiteUrl}")
+        webAttraction.loadUrl(attraction.websiteUrl)
+    }
 
     // Junta tudo o que o usuário ajustou e devolve a viagem atualizada para a lista.
     private fun addToTrip() {

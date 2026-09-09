@@ -32,6 +32,7 @@
     <string name="details_difficulty">Nível de dificuldade</string>
     <string name="details_start_time">Horário de início</string>
     <string name="details_notes">Observações</string>
+    <string name="details_more_info">Mais informações</string>
     <string name="details_notes_hint">Ex.: levar protetor solar</string>
     <string name="details_add">Adicionar à viagem</string>
     <string name="details_added">%1$s foi adicionada à viagem</string>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     Tela 3: detalhes da atividade escolhida e ajuste dos parâmetros.
-    O ScrollView deixa a tela rolar em aparelhos menores.
+
+    O NestedScrollView (em vez do ScrollView comum) é necessário porque
+    esta tela tem uma WebView dentro dela. Duas áreas que rolam, uma dentro
+    da outra, só se entendem se a de fora souber conversar com a de dentro.
 -->
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -162,13 +165,46 @@
             android:inputType="textMultiLine"
             android:minLines="2" />
 
+        <!-- Página da atividade, aberta dentro do próprio aplicativo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/details_more_info"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressPage"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100" />
+
+        <!--
+            A WebView fica dentro de um quadro de altura fixa. Ela não pode
+            ficar direto em um pai de altura "wrap_content", porque aí não
+            saberia onde termina e o conteúdo carregaria com tamanho errado.
+        -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <WebView
+                android:id="@+id/webAttraction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="true" />
+
+        </FrameLayout>
+
         <Button
             android:id="@+id/btnAddToTrip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:text="@string/details_add" />
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
