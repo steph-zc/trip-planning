@@ -3,9 +3,11 @@ package br.com.example.tripplanning.ui.attractions
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +17,7 @@ import br.com.example.tripplanning.model.Attraction
 import br.com.example.tripplanning.model.Trip
 import br.com.example.tripplanning.ui.adapter.AttractionAdapter
 import br.com.example.tripplanning.ui.details.AttractionDetailsActivity
+import br.com.example.tripplanning.ui.summary.TripSummaryActivity
 import br.com.example.tripplanning.util.Extras
 import br.com.example.tripplanning.util.TripLogger
 
@@ -27,6 +30,7 @@ class AttractionListActivity : AppCompatActivity() {
     private lateinit var txtAttractionsCount: TextView
     private lateinit var txtChosenCount: TextView
     private lateinit var recyclerAttractions: RecyclerView
+    private lateinit var btnSeeSummary: Button
 
     // A viagem montada na tela 1, recebida pelo Intent.
     private lateinit var trip: Trip
@@ -90,6 +94,8 @@ class AttractionListActivity : AppCompatActivity() {
         txtAttractionsCount = findViewById(R.id.txtAttractionsCount)
         txtChosenCount = findViewById(R.id.txtChosenCount)
         recyclerAttractions = findViewById(R.id.recyclerAttractions)
+        btnSeeSummary = findViewById(R.id.btnSeeSummary)
+        btnSeeSummary.setOnClickListener { openSummary() }
     }
 
     // Repete no topo o que o usuário informou, para ele não perder o contexto.
@@ -141,6 +147,27 @@ class AttractionListActivity : AppCompatActivity() {
         intent.putExtra(Extras.TRIP, trip)
         intent.putExtra(Extras.ATTRACTION, attraction)
         detailsLauncher.launch(intent)
+    }
+
+    // Abre o resumo final da viagem.
+    private fun openSummary() {
+        // Um resumo vazio não diz nada ao usuário, então a tela só abre
+        // depois de pelo menos uma atividade escolhida.
+        if (trip.plannedAttractions.isEmpty()) {
+            Log.d(TAG, "Resumo pedido sem nenhuma atividade escolhida")
+            AlertDialog.Builder(this)
+                .setTitle(R.string.dialog_incomplete_title)
+                .setMessage(R.string.error_no_attraction)
+                .setPositiveButton(R.string.dialog_ok, null)
+                .show()
+            return
+        }
+
+        TripLogger.logTransition("AttractionListActivity", "TripSummaryActivity", trip)
+
+        val intent = Intent(this, TripSummaryActivity::class.java)
+        intent.putExtra(Extras.TRIP, trip)
+        startActivity(intent)
     }
 
     // Faz a seta de voltar da barra de título encerrar esta tela,

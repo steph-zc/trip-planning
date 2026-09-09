@@ -36,6 +36,13 @@
             android:label="@string/title_attraction_details"
             android:parentActivityName=".ui.attractions.AttractionListActivity" />
 
+        <!-- Tela 4: resumo final da viagem -->
+        <activity
+            android:name=".ui.summary.TripSummaryActivity"
+            android:exported="false"
+            android:label="@string/title_trip_summary"
+            android:parentActivityName=".ui.attractions.AttractionListActivity" />
+
     </application>
 
 </manifest>

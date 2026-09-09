@@ -42,6 +42,30 @@
     </plurals>
     <string name="list_chosen_none">Nenhuma atividade escolhida ainda</string>
 
+    <!-- Tela 4: resumo da viagem -->
+    <string name="title_trip_summary">Resumo da viagem</string>
+    <string name="summary_trip_info">%1$s a %2$s · %3$s</string>
+    <string name="summary_hours">%1$d h planejadas de %2$d h disponíveis</string>
+    <string name="summary_sort">Ordenar por</string>
+    <string name="summary_view_on">Detalhado</string>
+    <string name="summary_view_off">Compacto</string>
+    <string name="summary_empty">Nenhuma atividade escolhida ainda.\nVolte e toque em uma atividade da lista.</string>
+    <string name="summary_item_info">%1$s · %2$d h · %3$s</string>
+    <string name="summary_notes">Obs.: %1$s</string>
+
+    <plurals name="summary_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dias</item>
+    </plurals>
+
+    <string-array name="summary_sort_options">
+        <item>Horário</item>
+        <item>Duração</item>
+        <item>Nome</item>
+    </string-array>
+
+    <string name="list_see_summary">Ver resumo da viagem</string>
+
     <!-- Avisos de validação -->
     <string name="dialog_incomplete_title">Dados incompletos</string>
     <string name="dialog_attention_title">Atenção</string>
@@ -53,4 +77,5 @@
     <string name="error_departure_first">Escolha primeiro a data de partida.</string>
     <string name="warning_return_cleared">A data de retorno foi apagada porque ficou anterior à nova data de partida. Escolha o retorno novamente.</string>
     <string name="error_preferences">Marque pelo menos uma preferência.</string>
+    <string name="error_no_attraction">Escolha pelo menos uma atividade antes de ver o resumo.</string>
 </resources>
