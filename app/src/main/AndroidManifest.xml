@@ -29,6 +29,13 @@
             android:label="@string/title_attraction_list"
             android:parentActivityName=".ui.setup.TripSetupActivity" />
 
+        <!-- Tela 3: aberta pela lista, devolve a viagem atualizada para ela -->
+        <activity
+            android:name=".ui.details.AttractionDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_attraction_details"
+            android:parentActivityName=".ui.attractions.AttractionListActivity" />
+
     </application>
 
 </manifest>

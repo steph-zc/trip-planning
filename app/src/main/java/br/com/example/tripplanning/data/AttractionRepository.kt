@@ -21,8 +21,7 @@ object AttractionRepository {
             preference = Preference.ADVENTURE,
             imageResId = R.drawable.ic_adventure,
             defaultDurationHours = 4,
-            defaultDifficulty = Difficulty.HARD,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Trekking"
+            defaultDifficulty = Difficulty.HARD
         ),
         Attraction(
             id = 2,
@@ -31,8 +30,7 @@ object AttractionRepository {
             preference = Preference.ADVENTURE,
             imageResId = R.drawable.ic_adventure,
             defaultDurationHours = 3,
-            defaultDifficulty = Difficulty.MEDIUM,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Rafting"
+            defaultDifficulty = Difficulty.MEDIUM
         ),
         Attraction(
             id = 3,
@@ -41,8 +39,7 @@ object AttractionRepository {
             preference = Preference.ADVENTURE,
             imageResId = R.drawable.ic_adventure,
             defaultDurationHours = 2,
-            defaultDifficulty = Difficulty.MEDIUM,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Parapente"
+            defaultDifficulty = Difficulty.MEDIUM
         ),
 
         // ----- Cultura -----
@@ -53,8 +50,7 @@ object AttractionRepository {
             preference = Preference.CULTURE,
             imageResId = R.drawable.ic_culture,
             defaultDurationHours = 2,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Museu"
+            defaultDifficulty = Difficulty.EASY
         ),
         Attraction(
             id = 5,
@@ -63,8 +59,7 @@ object AttractionRepository {
             preference = Preference.CULTURE,
             imageResId = R.drawable.ic_culture,
             defaultDurationHours = 3,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Centro_hist%C3%B3rico"
+            defaultDifficulty = Difficulty.EASY
         ),
         Attraction(
             id = 6,
@@ -73,8 +68,7 @@ object AttractionRepository {
             preference = Preference.CULTURE,
             imageResId = R.drawable.ic_culture,
             defaultDurationHours = 2,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Teatro"
+            defaultDifficulty = Difficulty.EASY
         ),
 
         // ----- Praia -----
@@ -85,8 +79,7 @@ object AttractionRepository {
             preference = Preference.BEACH,
             imageResId = R.drawable.ic_beach,
             defaultDurationHours = 5,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Praia"
+            defaultDifficulty = Difficulty.EASY
         ),
         Attraction(
             id = 8,
@@ -95,8 +88,7 @@ object AttractionRepository {
             preference = Preference.BEACH,
             imageResId = R.drawable.ic_beach,
             defaultDurationHours = 3,
-            defaultDifficulty = Difficulty.MEDIUM,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Mergulho_livre"
+            defaultDifficulty = Difficulty.MEDIUM
         ),
         Attraction(
             id = 9,
@@ -105,8 +97,7 @@ object AttractionRepository {
             preference = Preference.BEACH,
             imageResId = R.drawable.ic_beach,
             defaultDurationHours = 2,
-            defaultDifficulty = Difficulty.HARD,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Surfe"
+            defaultDifficulty = Difficulty.HARD
         ),
 
         // ----- Gastronomia -----
@@ -117,8 +108,7 @@ object AttractionRepository {
             preference = Preference.GASTRONOMY,
             imageResId = R.drawable.ic_gastronomy,
             defaultDurationHours = 4,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Gastronomia"
+            defaultDifficulty = Difficulty.EASY
         ),
         Attraction(
             id = 11,
@@ -127,8 +117,7 @@ object AttractionRepository {
             preference = Preference.GASTRONOMY,
             imageResId = R.drawable.ic_gastronomy,
             defaultDurationHours = 3,
-            defaultDifficulty = Difficulty.MEDIUM,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Culin%C3%A1ria"
+            defaultDifficulty = Difficulty.MEDIUM
         ),
         Attraction(
             id = 12,
@@ -137,8 +126,7 @@ object AttractionRepository {
             preference = Preference.GASTRONOMY,
             imageResId = R.drawable.ic_gastronomy,
             defaultDurationHours = 2,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Feira_livre"
+            defaultDifficulty = Difficulty.EASY
         ),
 
         // ----- Vida noturna -----
@@ -149,8 +137,7 @@ object AttractionRepository {
             preference = Preference.NIGHTLIFE,
             imageResId = R.drawable.ic_nightlife,
             defaultDurationHours = 3,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/M%C3%BAsica_ao_vivo"
+            defaultDifficulty = Difficulty.EASY
         ),
         Attraction(
             id = 14,
@@ -159,8 +146,7 @@ object AttractionRepository {
             preference = Preference.NIGHTLIFE,
             imageResId = R.drawable.ic_nightlife,
             defaultDurationHours = 2,
-            defaultDifficulty = Difficulty.MEDIUM,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Mirante"
+            defaultDifficulty = Difficulty.MEDIUM
         ),
         Attraction(
             id = 15,
@@ -169,8 +155,7 @@ object AttractionRepository {
             preference = Preference.NIGHTLIFE,
             imageResId = R.drawable.ic_nightlife,
             defaultDurationHours = 4,
-            defaultDifficulty = Difficulty.EASY,
-            websiteUrl = "https://pt.wikipedia.org/wiki/Festival"
+            defaultDifficulty = Difficulty.EASY
         )
     )
 

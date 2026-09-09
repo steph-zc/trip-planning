@@ -25,6 +25,23 @@
         <item quantity="other">%d atividades sugeridas</item>
     </plurals>
 
+    <!-- Tela 3: detalhes e ajuste da atividade -->
+    <string name="title_attraction_details">Detalhes da atividade</string>
+    <string name="details_duration">Duração: %1$d h</string>
+    <string name="details_duration_hint">Arraste para ajustar quantas horas você quer dedicar</string>
+    <string name="details_difficulty">Nível de dificuldade</string>
+    <string name="details_start_time">Horário de início</string>
+    <string name="details_notes">Observações</string>
+    <string name="details_notes_hint">Ex.: levar protetor solar</string>
+    <string name="details_add">Adicionar à viagem</string>
+    <string name="details_added">%1$s foi adicionada à viagem</string>
+
+    <plurals name="list_chosen_count">
+        <item quantity="one">%d atividade já escolhida</item>
+        <item quantity="other">%d atividades já escolhidas</item>
+    </plurals>
+    <string name="list_chosen_none">Nenhuma atividade escolhida ainda</string>
+
     <!-- Avisos de validação -->
     <string name="dialog_incomplete_title">Dados incompletos</string>
     <string name="dialog_attention_title">Atenção</string>

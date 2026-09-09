@@ -40,8 +40,7 @@ object TripLogger {
             Log.d(
                 TAG,
                 "  - ${planned.attraction.name} | ${planned.durationHours}h | " +
-                    "${planned.difficulty.label} | início ${planned.startTime} | " +
-                    "guia: ${if (planned.withGuide) "sim" else "não"}"
+                    "${planned.difficulty.label} | início ${planned.startTime}"
             )
         }
         Log.d(TAG, "Total de horas: ${trip.totalHours()}")

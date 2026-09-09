@@ -1,9 +1,11 @@
 package br.com.example.tripplanning.ui.attractions
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +14,7 @@ import br.com.example.tripplanning.data.AttractionRepository
 import br.com.example.tripplanning.model.Attraction
 import br.com.example.tripplanning.model.Trip
 import br.com.example.tripplanning.ui.adapter.AttractionAdapter
+import br.com.example.tripplanning.ui.details.AttractionDetailsActivity
 import br.com.example.tripplanning.util.Extras
 import br.com.example.tripplanning.util.TripLogger
 
@@ -22,10 +25,39 @@ class AttractionListActivity : AppCompatActivity() {
     private lateinit var txtDestination: TextView
     private lateinit var txtTripInfo: TextView
     private lateinit var txtAttractionsCount: TextView
+    private lateinit var txtChosenCount: TextView
     private lateinit var recyclerAttractions: RecyclerView
 
     // A viagem montada na tela 1, recebida pelo Intent.
     private lateinit var trip: Trip
+
+    // Abre a tela de detalhes e fica esperando a resposta dela.
+    // Como o Trip viaja no Intent, cada tela trabalha com a sua própria cópia:
+    // é por aqui que a viagem com a atividade nova volta para esta tela.
+    private val detailsLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode != RESULT_OK) {
+            Log.d(TAG, "Voltou dos detalhes sem adicionar nada")
+            return@registerForActivityResult
+        }
+
+        val updatedTrip = result.data?.getSerializableExtra(Extras.TRIP, Trip::class.java)
+        if (updatedTrip != null) {
+            trip = updatedTrip
+            TripLogger.logArrival("AttractionListActivity", trip)
+            updateChosenCount()
+
+            val lastAdded = trip.plannedAttractions.lastOrNull()
+            if (lastAdded != null) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.details_added, lastAdded.attraction.name),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,12 +81,14 @@ class AttractionListActivity : AppCompatActivity() {
         linkComponents()
         fillHeader()
         fillList()
+        updateChosenCount()
     }
 
     private fun linkComponents() {
         txtDestination = findViewById(R.id.txtDestination)
         txtTripInfo = findViewById(R.id.txtTripInfo)
         txtAttractionsCount = findViewById(R.id.txtAttractionsCount)
+        txtChosenCount = findViewById(R.id.txtChosenCount)
         recyclerAttractions = findViewById(R.id.recyclerAttractions)
     }
 
@@ -88,14 +122,25 @@ class AttractionListActivity : AppCompatActivity() {
         }
     }
 
+    // Mostra quantas atividades já foram adicionadas à viagem.
+    private fun updateChosenCount() {
+        val chosen = trip.plannedAttractions.size
+        txtChosenCount.text = if (chosen == 0) {
+            getString(R.string.list_chosen_none)
+        } else {
+            resources.getQuantityString(R.plurals.list_chosen_count, chosen, chosen)
+        }
+    }
+
     // Chamado quando o usuário toca em um cartão da lista.
     private fun openDetails(attraction: Attraction) {
         TripLogger.logSelectedAttraction(attraction)
         TripLogger.logTransition("AttractionListActivity", "AttractionDetailsActivity", trip)
 
-        // TEMPORÁRIO: a terceira tela ainda não existe.
-        // Na próxima etapa esta linha vira o Intent que abre os detalhes.
-        Toast.makeText(this, attraction.name, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, AttractionDetailsActivity::class.java)
+        intent.putExtra(Extras.TRIP, trip)
+        intent.putExtra(Extras.ATTRACTION, attraction)
+        detailsLauncher.launch(intent)
     }
 
     // Faz a seta de voltar da barra de título encerrar esta tela,

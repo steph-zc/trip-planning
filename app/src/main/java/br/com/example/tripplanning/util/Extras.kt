@@ -7,5 +7,4 @@ object Extras {
 
     const val TRIP = "extra_trip"
     const val ATTRACTION = "extra_attraction"
-    const val PLANNED_ATTRACTION = "extra_planned_attraction"
 }

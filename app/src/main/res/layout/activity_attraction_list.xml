@@ -49,6 +49,18 @@
         android:text="@string/list_help"
         android:textSize="14sp" />
 
+    <!-- Quantas atividades já foram adicionadas à viagem -->
+    <TextView
+        android:id="@+id/txtChosenCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="2 atividades já escolhidas" />
+
     <!--
         A altura 0dp com weight 1 faz a lista ocupar todo o espaço que
         sobra abaixo do cabeçalho, sem empurrar nada para fora da tela.
